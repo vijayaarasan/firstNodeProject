@@ -1,0 +1,24 @@
+{
+  "name": "firstnodeproject",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vijayaarasan/firstNodeProject.git"
+  },
+  "author": "vj",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vijayaarasan/firstNodeProject/issues"
+  },
+  "homepage": "https://github.com/vijayaarasan/firstNodeProject#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "fs": "0.0.1-security"
+  }
+}
