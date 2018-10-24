@@ -23,6 +23,7 @@
   "homepage": "https://github.com/vijayaarasan/firstNodeProject",
   "dependencies": {
     "express": "^4.16.4",
+    "body-parser": "^1.18.2",
     "fs": "0.0.1-security"
   }
 }
