@@ -18,7 +18,11 @@ var bodyparser = require('body-parser');
 var sampRoute = require('./route/route');
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
-app.use('/sapi', sampRoute);
+app.get('/sapi', sampRoute
+// , function () {
+//     console.log("api working")    
+// }
+);
 
 
 
