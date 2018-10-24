@@ -8,8 +8,8 @@ var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
  
  
 app.get('/', function(req, res) {
-    res.send('Hello from NodeJS  at '+ new Date());
-    res.render('index.html', { pageCountMessage : null});
+    res.send('Hello from NodeJS  at '+ new Date() + 'Running Successfully.' );
+    // res.render('index.html', { pageCountMessage : null});
 });
  
 app.listen(port, ip, function () {
