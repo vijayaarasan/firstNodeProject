@@ -13,16 +13,20 @@ app.get('/', function (req, res) {
         'commit working...');
     
 });
+app.get('/smp1', function (req, res) {
+    res.send('Sample one is running...');
+    
+});
+app.get('/spm2', function (req, res) {
+    res.send('Sample two is running...');
+    
+});
 
 var bodyparser = require('body-parser');
 var sampRoute = require('./route/route');
 app.use(bodyparser.json());
 app.use(bodyparser.urlencoded({extended: false}));
-app.get('/sapi', sampRoute
-// , function () {
-//     console.log("api working")    
-// }
-);
+app.use('/sapi', sampRoute);
 
 
 
