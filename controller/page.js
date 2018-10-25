@@ -21,6 +21,14 @@ module.exports.three = function (req, res) {
         res.send('Hello' + name + '!');
     }
 };
+module.exports.samplebody = function (req, res) {
+    let body = req.body;
+    if (!body) {
+        res.send('No content found.');
+    } else {
+        res.send(body);
+    }
+};
 
 module.exports.postPage = function (req, res) {
     let data = req.body;
