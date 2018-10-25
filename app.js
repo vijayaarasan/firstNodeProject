@@ -1,8 +1,7 @@
 var express = require('express'),
   app = express();
 
-var port = process.env.PORT || process.env.OPENSHIFT_NODEJS_PORT || 8080,
-  ip = process.env.IP || process.env.OPENSHIFT_NODEJS_IP || '0.0.0.0';
+
 
 
 var bodyparser = require('body-parser');
@@ -27,10 +26,30 @@ app.use('/sapi', sampRoute);
 
 
 
+var mongoose = require('mongoose');
+var baseConfig = require('./config/database/devConfig');
+// var auditLog = require('audit-log');
 
+// MongoDB Connection
+const options = {
+    useMongoClient: true,
+    reconnectTries: Number.MAX_VALUE, // Never stop trying to reconnect
+    reconnectInterval: 500, // Reconnect every 500ms
+    poolSize: 10, // Maintain up to 10 socket connections
+    bufferMaxEntries: 0
+};
+mongoose.connect(baseConfig.mongoURL, options, function(err){
+    if(err){
+        console.log(err);// eslint-disable-line
+    }
+    console.log('Open Database Connection Success');// eslint-disable-line
+});
 
-app.listen(port, ip, function () {
-    console.log("Listening on " + ip + ", port " + 8080)
+// auditLog.addTransport('mongoose', { connectionString: baseConfig.mongoURL });
+// auditLog.addTransport('console');
+
+app.listen(baseConfig.port, baseConfig.ip, function () {
+    console.log("Listening on " + baseConfig.ip + ", port " + 8080)
 });
 
 module.exports = app;
